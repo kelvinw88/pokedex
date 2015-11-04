@@ -13,6 +13,12 @@
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main'
+      })
+      .state('home.pokedex', {
+        url: '/pokedex',
+        templateUrl: 'app/pokedex/pokedex.html',
+        controller: 'PokedexController',
+        controllerAs: 'pokedex'
       });
 
     $urlRouterProvider.otherwise('/');
