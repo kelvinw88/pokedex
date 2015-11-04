@@ -27,9 +27,72 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   }
 }
 
+.m-t{
+  margin-top:20px;
+}
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
  */
 // injector
 // endinjector
+
+*{
+      -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  }
+  [ng-drag]{
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+  }
+  [ng-drag] .panel {
+      background: rgba(201, 236, 127, 0.5);
+      cursor: move;
+  }
+
+  [ng-drag] div .panel {
+      background: white;
+      cursor: move;
+  }
+
+  // .poke-info div div{
+  //     background: white;
+  //     cursor: move;
+  // }
+  ul.draggable-objects:after{
+      display: block;
+      content:"";
+      clear:both;
+  }
+  .draggable-objects li{
+      float:left;
+      display: block;
+      width: 120px;
+      height:100px;
+  }
+  [ng-drag].drag-over{
+      border:solid 1px red;
+  }
+  [ng-drag].dragging{
+      opacity: 0.5;
+  }
+  [ng-drop]{
+      background: rgba(227, 227, 227, 1);
+      text-align: center;
+      width: 100%;
+      min-height: 200px;
+      padding-top:90px;
+      display: block;
+      margin:20px auto;
+      position: relative;
+  }
+  [ng-drop].drag-enter{
+      border:solid 5px red;
+  }
+
+  [ng-drop] div{
+      position: relative;
+      z-index: 2;
+  }

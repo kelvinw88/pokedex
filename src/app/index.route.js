@@ -14,7 +14,7 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .state('home.pokedex', {
+      .state('pokedex', {
         url: '/pokedex',
         templateUrl: 'app/pokedex/pokedex.html',
         controller: 'PokedexController',

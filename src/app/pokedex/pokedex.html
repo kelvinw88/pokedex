@@ -1,9 +1,36 @@
 <h1>THIS IS POKEDEX</h1>
 
-<form ng-submit="pokedex.searchByName(pokedex.input)">
+<form ng-submit="pokedex.searchByName(pokedex.input)" class="text-center m-t">
   <input type="text" ng-init="pokedex.input = ''" ng-model="pokedex.input">
   <input type="submit">
 </form>
 
-<pre ng-if="pokedex.result.status === 200">{{pokedex.result.data | json}}</pre>
-<pre ng-if="pokedex.result.status !== 200">Sorry. No such pokemon.</pre>
+
+
+<div ng-if="pokedex.result.status === 200">
+  <div ng-drag="true" ng-drag-data="pokedex.pokemon">
+    <poke-info class="poke-info" pokemon="pokedex.pokemon"></poke-info>
+  </div>
+</div>
+
+<pre class="m-t" ng-if="pokedex.result.status === 404">Sorry. No such pokemon.</pre>
+<div class="m-t">
+  <div class="row">
+
+    <h2 class="col-md-6">Compare Pokemon</h2>
+    <h2 class="col-md-6">
+      <button class="pull-right btn btn-default" ng-click="pokedex.droppedPokemon = []">Reset</button>
+    </h2>
+  </div>
+
+  <hr/>
+  <div  class="row" ng-drop="true" ng-drop-success="pokedex.onDropComplete1($data,$event)">
+    <div ng-if="pokedex.droppedPokemon.length === 0">
+      Drag and drop pokemon here to compare
+    </div>
+    <div class="col-sm-6" ng-repeat="pokemon in pokedex.droppedPokemon" ng-drag-data="pokemon">
+        <poke-info pokemon="pokemon"></poke-info>
+    </div>
+  </div>
+
+</div>
