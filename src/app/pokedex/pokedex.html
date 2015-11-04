@@ -1,2 +1,9 @@
 <h1>THIS IS POKEDEX</h1>
-{{pokedex.creationDate}}
+
+<form ng-submit="pokedex.searchByName(pokedex.input)">
+  <input type="text" ng-init="pokedex.input = ''" ng-model="pokedex.input">
+  <input type="submit">
+</form>
+
+<pre ng-if="pokedex.result.status === 200">{{pokedex.result.data | json}}</pre>
+<pre ng-if="pokedex.result.status !== 200">Sorry. No such pokemon.</pre>
