@@ -1,16 +1,19 @@
 <div class="panel panel-default m-t">
   <div class="panel-body">
-    <h3>{{vm.pokemon.name}}</h3>
-    <div class="row">
-      <div class="col-sm-2">
-        <img ng-src="{{vm.pokemon.image}}" alt="{{vm.pokemon.name}}">
-      </div>
-      <div class="col-sm-10">
-        <p>{{vm.pokemon.descriptions}}</p>
-      </div>
+    <div class="text-center">
+      <h3>{{vm.pokemon.name}}
+        <small>ID:{{vm.pokemon.pkdx_id}}</small>
+      </h3>
     </div>
 
-
+    <div class="row">
+      <div class="col-sm-3">
+        <img ng-src="{{vm.pokemon.image}}" alt="{{vm.pokemon.name}}" class="thumb">
+      </div>
+      <div class="col-sm-9">
+        <p class="text-left">{{vm.pokemon.descriptions}}</p>
+      </div>
+    </div>
     <div class="panel panel-default">
       <div class="panel-body">
 
@@ -48,21 +51,34 @@
         <h4 class="text-left">Stats:</h4>
         <div class="row">
           <div class="col-sm-3">
-            <p class="text-left">
-              <strong>HP:</strong>
-              {{vm.pokemon.hp}}
-            </p>
+            <div class="text-left set-flex">
+              <p>
+                <strong>HP: &emsp;</strong>
+              </p>
+              <p class="set-flex">
+                {{vm.pokemon.hp}}
+                <span ng-if="vm.pokemon.hpCompare === 1 || vm.pokemon.hpCompare === 0" ng-class="vm.pokemon.hpCompare ? 'arrow-up' : 'arrow-down' "></span>
+              </p>
+
+            </div>
           </div>
-          <div class="col-sm-3">
-            <p class="text-left">
-              <strong>Attack:</strong>
+          <div class="col-sm-3 set-flex">
+            <p class="text-left set-flex">
+              <strong>Attack: &emsp;</strong>
+            </p>
+            <p class="set-flex">
               {{vm.pokemon.attack}}
+              <span ng-if="vm.pokemon.atkCompare === 1 ||  vm.pokemon.atkCompare === 0" ng-class="vm.pokemon.atkCompare ? 'arrow-up' : 'arrow-down' "></span>
             </p>
           </div>
-          <div class="col-sm-3">
+
+          <div class="col-sm-3 set-flex">
             <p class="text-left">
-              <strong>Defense:</strong>
+              <strong>Defense: &emsp;</strong>
+            </p>
+            <p class="set-flex">
               {{vm.pokemon.defense}}
+              <span ng-if="vm.pokemon.defCompare === 1 ||  vm.pokemon.defCompare === 0" ng-class="vm.pokemon.defCompare ? 'arrow-up' : 'arrow-down' "></span>
             </p>
           </div>
           <div class="col-sm-3">
@@ -86,7 +102,7 @@
             <h4 class="text-left">Weakness:</h4>
             <ul class="list-inline text-left">
               <li ng-repeat="point in vm.pokemon.weakness track by $index">
-                {{point.name}}
+                <span ng-class="{'red': point.match}">{{point.name}} </span>
               </li>
             </ul>
           </div>
@@ -109,7 +125,8 @@
           <div class="col-sm-12">
             <ul class="list-inline text-left">
               <li ng-repeat="state in vm.pokemon.evolutionsList track by $index">
-                {{state.name}}  <span ng-if="$index !== vm.pokemon.evolutionsList.length - 1"> > </span>
+                {{state.name}}
+                <span ng-if="$index !== vm.pokemon.evolutionsList.length - 1"> > </span>
               </li>
             </ul>
           </div>

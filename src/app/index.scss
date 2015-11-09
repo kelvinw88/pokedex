@@ -2,7 +2,7 @@
  *  If you want to override some bootstrap variables, you have to change values here.
  *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
  */
-$navbar-inverse-link-color: #5AADBB;
+$navbar-inverse-link-color: #5aadbb;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 /**
@@ -11,7 +11,6 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
  */
 // bower:scss
 // endbower
-
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -21,78 +20,133 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 .thumbnail {
   height: 200px;
-
   img.pull-right {
     width: 50px;
   }
+
 }
 
-.m-t{
-  margin-top:20px;
+.m-t {
+  margin-top: 20px;
 }
+
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
  */
 // injector
 // endinjector
+.set-flex {
+  display: flex;
+}
 
-*{
-      -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-  }
-  [ng-drag]{
-      -moz-user-select: -moz-none;
-      -khtml-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-  }
-  [ng-drag] .panel {
-      background: rgba(201, 236, 127, 0.5);
-      cursor: move;
-  }
+.flex-center {
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.red{
+  color:red;
+}
+.arrow-up {
+	width: 0;
+	height: 0;
+  margin-top:5px;
+  margin-left:5px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid rgb(0, 255, 64);
+}
 
-  [ng-drag] div .panel {
-      background: white;
-      cursor: move;
-  }
+.arrow-down {
+	width: 0;
+	height: 0;
+  margin-top:5px;
+  margin-left:5px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid rgb(255, 0, 0);
+}
+.thumb {
+  width: 120px;
+  height: 120px;
+}
 
-  // .poke-info div div{
-  //     background: white;
-  //     cursor: move;
-  // }
-  ul.draggable-objects:after{
-      display: block;
-      content:"";
-      clear:both;
-  }
-  .draggable-objects li{
-      float:left;
-      display: block;
-      width: 120px;
-      height:100px;
-  }
-  [ng-drag].drag-over{
-      border:solid 1px red;
-  }
-  [ng-drag].dragging{
-      opacity: 0.5;
-  }
-  [ng-drop]{
-      background: rgba(227, 227, 227, 1);
-      text-align: center;
-      width: 100%;
-      min-height: 200px;
-      padding-top:90px;
-      display: block;
-      margin:20px auto;
-      position: relative;
-  }
-  [ng-drop].drag-enter{
-      border:solid 5px red;
-  }
+.w-full {
+  width: 100%;
+}
 
-  [ng-drop] div{
-      position: relative;
-      z-index: 2;
-  }
+.h-full {
+  height: 100%;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+[ng-drag] {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+[ng-drag] .panel {
+  background: rgba(201, 236, 127, 0.5);
+  cursor: move;
+}
+
+[ng-drag] div .panel {
+  background: white;
+  cursor: move;
+}
+
+
+// .poke-info div div{
+//     background: white;
+//     cursor: move;
+// }
+ul.draggable-objects:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.draggable-objects li {
+  float: left;
+  display: block;
+  width: 120px;
+  height: 100px;
+}
+
+[ng-drag].drag-over {
+  border: solid 1px red;
+}
+
+[ng-drag].dragging {
+  opacity: 0.5;
+}
+
+[ng-drop] {
+  background: rgba(227, 227, 227, 1);
+  text-align: center;
+  width: 100%;
+  min-height: 200px;
+  padding-top: 90px;
+  display: block;
+  margin: 20px auto;
+  position: relative;
+}
+
+[ng-drop].drag-enter {
+  border: solid 5px red;
+}
+
+[ng-drop] div {
+  position: relative;
+  z-index: 2;
+}

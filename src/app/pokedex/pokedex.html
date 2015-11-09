@@ -1,5 +1,36 @@
-<h1>THIS IS POKEDEX</h1>
+<h1 class="text-center">THIS IS POKEDEX</h1>
 
+<h1 class="m-t">Pokemon List</h1>
+<div class="panel panel-default m-t">
+  <div class="panel-body">
+    <div class="col-md-12 text-center">
+
+      <ul class="list-unstyled list-inline m-t">
+        <li ng-if="!pokedex.loading" ng-repeat="pokemon in pokedex.displayPokemon track by $index">
+          <div class="panel panel-default m-t btn-default btn" ng-click="pokedex.selectPokemon($index)">
+            <div class="panel-body">
+              <p class="text-center">
+                {{pokemon.info.name}}
+              </p>
+              <img ng-src="{{pokemon.info.image}}" class="thumb">
+            </div>
+          </div>
+        </li>
+        <li ng-if="pokedex.loading">
+          <p class="text-center">
+            Loading...
+          </p>
+        </li>
+
+      </ul>
+
+    </div>
+    <button class="btn btn-default" ng-click="pokedex.backPage()">Back Page</button>
+    <button class="btn btn-default pull-right" ng-click="pokedex.nextPage()">Next Page</button>
+  </div>
+</div>
+
+<h1 class="m-t">Search Pokemon</h1>
 <form ng-submit="pokedex.searchByName(pokedex.input)" class="text-center m-t">
   <input type="text" ng-init="pokedex.input = ''" ng-model="pokedex.input">
   <input type="submit">
@@ -24,12 +55,12 @@
   </div>
 
   <hr/>
-  <div  class="row" ng-drop="true" ng-drop-success="pokedex.onDropComplete1($data,$event)">
+  <div class="row" ng-drop="true" ng-drop-success="pokedex.onDropComplete1($data,$event)">
     <div ng-if="pokedex.droppedPokemon.length === 0">
       Drag and drop pokemon here to compare
     </div>
     <div class="col-sm-6" ng-repeat="pokemon in pokedex.droppedPokemon" ng-drag-data="pokemon">
-        <poke-info pokemon="pokemon"></poke-info>
+      <poke-info pokemon="pokemon"></poke-info>
     </div>
   </div>
 
