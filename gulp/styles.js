@@ -44,3 +44,6 @@ gulp.task('styles', function () {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')))
     .pipe(browserSync.reload({ stream: true }));
 });
+
+
+console.log("new code")
