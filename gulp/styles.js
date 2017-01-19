@@ -43,7 +43,10 @@ gulp.task('styles', function () {
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')))
     .pipe(browserSync.reload({ stream: true }));
-});
+      });
 
 
 console.log("new code")
+console.log("new code2")
+console.log("new code3")
+console.log("new code4")
